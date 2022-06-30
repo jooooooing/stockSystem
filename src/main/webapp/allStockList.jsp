@@ -10,6 +10,23 @@
 	rel="stylesheet">
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+.container {
+	margin-top: 5px;
+}
+
+.pagination{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.div_btn{
+float : right;
+}
+</style>
+
 <%
 String no_page = "1";
 int size_page = 20;
@@ -37,21 +54,22 @@ ResultSet rset2 = stmt.executeQuery(sql2);
 <body>
 	<jsp:include page="menu.jsp" />
 	<div class="container">
-		<h3>재고현황</h3>
-		<table cellspacing=1 width=600 border=1>
+		<h3>재고현황-전체현황</h3>
+		<table
+			class="table table-bordered table-striped table-sm thead-dark table-hover">
 			<tr>
-				<td width=50><p align=center>상품번호</p></td>
-				<td width=50><p align=center>상품명</p></td>
-				<td width=50><p align=center>현재 재고수</p></td>
-				<td width=50><p align=center>재고파악일</p></td>
-				<td width=50><p align=center>상품등록일</p></td>
-
+				<td>상품번호</td>
+				<td>상품명</td>
+				<td>현재 재고수</td>
+				<td>재고파악일</td>
+				<td>상품등록일</td>
 			</tr>
 			<%
 			while (rset2.next()) {
 				out.println("<tr>");
 				out.println("<td>" + rset2.getInt("p_id") + "</td>");
-				out.println("<td><a href='productOneView.jsp?id=" + rset2.getString("p_id") + "'>" + rset2.getString("p_name") + "</a></td>");
+				out.println("<td><a href='productOneView.jsp?p_id=" + rset2.getString("p_id") + "'>" + rset2.getString("p_name")
+				+ "</a></td>");
 				out.println("<td>" + rset2.getInt("p_stock") + "</td>");
 				out.println("<td>" + rset2.getDate("p_date") + "</td>");
 				out.println("<td>" + rset2.getDate("s_date") + "</td>");
@@ -59,9 +77,6 @@ ResultSet rset2 = stmt.executeQuery(sql2);
 			}
 			%>
 		</table>
-		<br>
-
-
 		<div class="pagination">
 			<%
 			// 페이징 처리
@@ -105,11 +120,10 @@ ResultSet rset2 = stmt.executeQuery(sql2);
 
 			out.println("<tr></table>");
 			%>
-		</div>
-
-		<div class="div-button">
-			<input type="button" value="신규 등록"
-				onclick="window.location='addProduct.jsp'">
+			<div class="div_btn">
+				<input type="button" value="신규 등록"
+					onclick="window.location='addProductPage.jsp'">
+			</div>
 		</div>
 	</div>
 

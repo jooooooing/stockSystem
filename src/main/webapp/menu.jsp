@@ -6,8 +6,8 @@
 		<div class="navbar-header">
 			<a href="./home.jsp" class="navbar-brand">Home</a> 
 			<a href="./allStockList.jsp" class="navbar-brand">Products</a> 
-			<a href="./addProduct.jsp" class="navbar-brand">상품 등록</a>
-			<a href="./DBmanage.jsp" class="navbar-brand">관리자 모드</a>
+			<a href="./addProductPage.jsp" class="navbar-brand">상품 등록</a>
+			<a href="./DB_manage.jsp" class="navbar-brand">관리자 모드</a>
 
 		</div>
 	</div>

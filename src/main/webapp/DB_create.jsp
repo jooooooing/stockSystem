@@ -16,10 +16,11 @@
 	%>
 	<%
 	try {
-		stmt.execute("drop table stock");
-		out.println("table 삭제 완료");
+		stmt.execute("create table stock(p_id int not null primary key, p_name varchar(70),"
+		+ "p_stock int, p_date date, s_date date, p_info text, p_image varchar(70)) DEFAULT CHARSET=utf8");
+		out.println("table 생성 완료");
 	} catch (Exception e) {
-		out.println("table 삭제 실패");
+		out.println("table 생성 실패");
 		out.println(e.toString());
 	}
 	%>
@@ -32,7 +33,7 @@ conn.close();
 	<table width=540>
 		<td width=500></td>
 		<td><input type=button value="돌아가기"
-			OnClick="location.href='DBmanage.jsp'"></td>
+			OnClick="location.href='./DB_manage.jsp'"></td>
 	</table>
 
 </body>

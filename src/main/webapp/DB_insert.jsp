@@ -45,7 +45,7 @@
 	<table width=540>
 		<td width=500></td>
 		<td><input type=button value="돌아가기"
-			OnClick="location.href='DBmanage.jsp'"></td>
+			OnClick="location.href='./DB_manage.jsp'"></td>
 	</table>
 
 </body>

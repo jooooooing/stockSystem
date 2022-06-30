@@ -14,9 +14,9 @@
 <body>
 	<jsp:include page="menu.jsp"></jsp:include>
 	<ul>
-		<li><a href="./createDB.jsp"> DB TABLE 생성</a></li>
-		<li><a href="./dropDB.jsp" > DB TABLE 삭제</a></li>
-		<li><a href="./insertDB.jsp"> DB 더미 data 생성</a></li>
+		<li><a href="./DB_create.jsp"> DB TABLE 생성</a></li>
+		<li><a href="./DB_drop.jsp" > DB TABLE 삭제</a></li>
+		<li><a href="./DB_insert.jsp"> DB 더미 data 생성</a></li>
 	</ul>
 	<jsp:include page="footer.jsp"></jsp:include>
 

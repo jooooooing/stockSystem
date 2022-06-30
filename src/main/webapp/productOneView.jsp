@@ -1,86 +1,83 @@
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<%@ page contentType = "text/html; charset=utf-8"%>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<%@ page contentType="text/html; charset=utf-8"%>
 <%@ page import="java.sql.*,javax.sql.*, java.io.*"%>
-<%@ page import = "java.util.Calendar" %>
 
 <html>
 <head>
-<%
-	Class.forName("com.mysql.cj.jdbc.Driver");
-	Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/kopoctc", "root", "koposw31");
-	Statement stmt = conn.createStatement(); //객체생성
-	String id_notice = request.getParameter("key");
-	
-	Integer id = 0;
-	
-	id = Integer.parseInt(id_notice);
-	
-	ResultSet rset = stmt.executeQuery("select * from notice where id = " +id+ ";");
-	rset.next();
-	Integer id_notice2 = rset.getInt(1);//번호
-	String title = rset.getString(2); //제목
-	String today = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
-	String content = rset.getString(4); //내용
-%>
-<title>글 보기</title>
-<!-- <SCRIPT LANGUAGE="JavaScript">
+<title>Product Stock List</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-function submitForm(mode){
-	if(mode == "write"){
-		fm.action = "notice_write.jsp";
-	}else if(mode == "delete"){
-		fm.action = "notice_delete.jsp";
-	}
-	fm.submit();
+<style>
+.div_btn {
 }
+</style>
 
-</SCRIPT> -->
-</head>
-<body>
+<%
+Class.forName("com.mysql.cj.jdbc.Driver");
+Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/kopoctc", "root", "koposw31");
+Statement stmt = conn.createStatement(); //Statement 객체 생성
+String id_fromList = request.getParameter("p_id");
+Integer id = Integer.parseInt(id_fromList);
+String sql1 = "select * from stock where p_id = " + id + ";";
+ResultSet rset = stmt.executeQuery(sql1);
+rset.next();
 
-<table  border=1 cellspacing=0 cellpadding=5>
-
-<tr>
-<td><b>번호</b></td>
-<td width=480 colspan=3 align=left><input type='hidden' name="id" value=<%=id%>><%=id%></td>
-</tr>
-
-<tr>
-<td><b>제목</b></td>
-<td width=480 colspan=3 align=left><input type='hidden' name="title" value=<%=title%>><%=title%></td>
-</tr>
-
-<tr>
-<td><b>일자</b></td>
-<td width=480 colspan=3 align=left><input type='hidden' name="today" value=<%=today%>><%=today%></td>
-</tr>
-
-<tr>
-<td><b>내용</b></td>
-<td width=480 colspan=3 align=left>
-<textarea rows="10px" cols="60px" readonly>
-<%=content%>
-</textarea>
-<%-- <input type='hidden' name="content" value=<%=content%>><%=content%></td> --%>
-</tr>
-<%	
-rset.close();
-stmt.close();
-conn.close();
+Integer p_id = rset.getInt(1);//번호
+String p_name = rset.getString(2); //상품명
+String p_stock = rset.getString(3); //재고현황
+String p_date = rset.getString(4); //상품등록날짜
+String s_date = rset.getString(5); //재고등록날짜
+String p_info = rset.getString(6); //상품설명
+String p_image = rset.getString(7); // 사진
 %>
+</head>
 
-</table>
-<table width=540>
-
-<tr>
-		<td width=500></td>
-		<td><input type=button value="목록" OnClick="location.href='notice_list.jsp'"></td>
-		<td><input type=button value="수정" OnClick="location.href='notice_updateView.jsp?key=<%=id%>'"></td>
-		<td><input type=button value="삭제" OnClick="location.href='notice_delete.jsp?key=<%=id%>'"></td>
-</tr>
-</table>
-
+<body>
+	<jsp:include page="menu.jsp" />
+	<div class="container">
+		<h3>재고현황-상품 상세</h3>
+		<table
+			class="table table-bordered table-striped table-sm thead-dark table-hover">
+			<tr>
+				<td>상품번호</td>
+				<td><%=p_id%></td>
+			</tr>
+			<tr>
+				<td>상품명</td>
+				<td><%=p_name%></td>
+			</tr>
+			<tr>
+				<td>재고 현황</td>
+				<td><%=p_stock%></td>
+			</tr>
+			<tr>
+				<td>상품등록일</td>
+				<td><%=p_date%></td>
+			</tr>
+			<tr>
+				<td>재고등록일</td>
+				<td><%=s_date%></td>
+			</tr>
+			<tr>
+				<td>상품설명</td>
+				<td><%=p_info%></td>
+			</tr>
+			<tr>
+				<td>상품사진</td>
+				<td><%=p_image%></td>
+			</tr>
+		</table>
+	<div class="div_btn">
+		<input type="button" value="돌아가기" onclick="window.location='allStockList.jsp?p_id=<%=p_id%>'"> 
+		<input type="button" value="상품삭제" onclick="window.location='DB_delete.jsp?p_id=<%=p_id%>'"> 
+		<input type="button" value="재고수정"	onclick="window.location='updateProductPage.jsp?p_id=<%=p_id%>'">
+	</div>
+	</div>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
-
-
+</head>
