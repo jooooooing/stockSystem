@@ -61,8 +61,8 @@ ResultSet rset2 = stmt.executeQuery(sql2);
 				<td>상품번호</td>
 				<td>상품명</td>
 				<td>현재 재고수</td>
-				<td>재고파악일</td>
 				<td>상품등록일</td>
+				<td>재고파악일</td>
 			</tr>
 			<%
 			while (rset2.next()) {

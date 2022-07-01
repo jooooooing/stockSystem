@@ -72,11 +72,16 @@ String today = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util
 				</tr>
 				<tr>
 					<td>상품사진</td>
-					<td><textarea
+					<td>
+					<form action ="DB_fileUpload.jsp" method="post" enctype="multipart/form-data">
+					<input type="file" name="file">
+					<input type="submit" value="Upload">
+					</form>
+<!-- 					<textarea
 							style='width: 400px; height: 250px; overflow-y: scroll'
 							name=p_image cols=70 row=600></textarea> <input
 						type=button value="Upload"
-						onClick="window.location='imageUpload.jsp'"></td>
+						onClick="window.location='imageUpload.jsp'"></td> -->
 				</tr>
 			</table>
 		<div class="div_btn">

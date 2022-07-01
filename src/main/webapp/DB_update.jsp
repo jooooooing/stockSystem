@@ -13,25 +13,30 @@
 
 	Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/kopoctc", "root", "koposw31");
 	String p_id = request.getParameter("p_id");
-	String sql = "delete from stock where p_id= " + p_id + ";";
+	String p_stock = request.getParameter("p_stock");
 
+	out.println(today);
+	String sql = "update stock set p_stock = ?, s_date = ? where p_id = ?";
 	PreparedStatement pstmt = conn.prepareStatement(sql);
-	
+	pstmt.setString(1, p_stock);
+	pstmt.setString(2, today);
+	pstmt.setString(3, p_id);
+
 	try {
 		pstmt.executeUpdate();
-		out.println("상품삭제 완료");
+		out.println("재고수정 완료");
 	} catch (Exception e) {
-		out.println("상품삭제 실패");
+		out.println("재고수정 실패");
 		out.println(e.toString());
 	}
 
 	pstmt.close();
 	conn.close();
 	%>
-
- 	<script>
-		alert("삭제완료");
+<!-- 
+	<script>
+		alert("수정완료");
 		window.location.href = "allStockList.jsp"; //특정페이지로의 이동
-	</script>
+	</script> -->
 </body>
 </html>

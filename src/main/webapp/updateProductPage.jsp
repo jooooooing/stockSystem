@@ -46,7 +46,7 @@ String p_image = rset.getString(7); // 사진
 
 <body>
 	<jsp:include page="menu.jsp" />
-	<form action="DB_write.jsp" method="post">
+	<form action="DB_update.jsp" method="post">
 		<div class="container">
 			<h3>재고수정</h3>
 			<table
@@ -71,7 +71,7 @@ String p_image = rset.getString(7); // 사진
 				</tr>
 				<tr>
 					<td>재고파악일</td>
-					<td><%=today%></td>
+					<td><%=today%><input type=hidden name='s_date' value=<%=today%>></td>
 				</tr>
 				<tr>
 					<td>상품설명</td>
@@ -80,7 +80,7 @@ String p_image = rset.getString(7); // 사진
 				<tr>
 					<td>상품사진</td>
 					<td><textarea
-							type=hidden
+							readonly
 							style='width: 400px; height: 250px; overflow-y: scroll'
 							name=p_image cols=70 row=600><%=p_image%></textarea></td>
 				</tr>
