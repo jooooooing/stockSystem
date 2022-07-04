@@ -22,7 +22,7 @@
 	PreparedStatement pstmt = conn.prepareStatement(sql);
 
 	try {
-		for (int i = 1; i < 121; i++) {
+		for (int i = 61; i < 120; i++) {
 			pstmt.setInt(1, i);
 			pstmt.setString(2, "품명" + i);
 			pstmt.setInt(3, 1);

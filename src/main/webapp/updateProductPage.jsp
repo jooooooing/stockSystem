@@ -39,7 +39,7 @@ Integer p_id = rset.getInt(1);//번호
 String p_name = rset.getString(2); //상품명
 String p_stock = rset.getString(3); //재고현황
 String p_date = rset.getString(4); //상품등록날짜
-String s_date = rset.getString(5); //재고등록날짜
+String s_date = today; //재고등록날짜
 String p_info = rset.getString(6); //상품설명
 String p_image = rset.getString(7); // 사진
 %>
@@ -79,13 +79,16 @@ String p_image = rset.getString(7); // 사진
 				</tr>
 				<tr>
 					<td>상품사진</td>
-					<td><textarea
-							readonly
-							style='width: 400px; height: 250px; overflow-y: scroll'
-							name=p_image cols=70 row=600><%=p_image%></textarea></td>
+					<td>
+					<div>
+					<img src="<%=p_image%>">
+					</div>
+					</td>
+					
 				</tr>
 			</table>
 		<div class="div_btn">
+			<input type="button" value="돌아가기" onclick="window.location='allStockList.jsp'"> 
 			<input type="submit" value="완료">
 		</div>			
 		</div>

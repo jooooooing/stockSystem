@@ -33,10 +33,10 @@
 	pstmt.close();
 	conn.close();
 	%>
-<!-- 
 	<script>
 		alert("수정완료");
-		window.location.href = "allStockList.jsp"; //특정페이지로의 이동
-	</script> -->
+	/* 	window.location.href = "allStockList.jsp"; //특정페이지로의 이동 */
+		history.go(-1);  //이전 페이지로의 이동
+	</script> 
 </body>
 </html>

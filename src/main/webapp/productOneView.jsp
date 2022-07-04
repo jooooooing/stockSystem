@@ -68,11 +68,11 @@ String p_image = rset.getString(7); // 사진
 			</tr>
 			<tr>
 				<td>상품사진</td>
-				<td><%=p_image%></td>
+				<td><img src="<%=p_image%>"></td>
 			</tr>
 		</table>
 	<div class="div_btn">
-		<input type="button" value="돌아가기" onclick="window.location='allStockList.jsp?p_id=<%=p_id%>'"> 
+		<input type="button" value="돌아가기" onclick="window.location='allStockList.jsp'"> 
 		<input type="button" value="상품삭제" onclick="window.location='DB_delete.jsp?p_id=<%=p_id%>'"> 
 		<input type="button" value="재고수정"	onclick="window.location='updateProductPage.jsp?p_id=<%=p_id%>'">
 	</div>
