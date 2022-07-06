@@ -30,7 +30,7 @@
 String no_page = "1";
 int size_page = 20;
 int count_total = 0;
-int size_group_page = 20;
+int size_group_page = 10;
 
 if (request.getParameter("page") != null) {
 	no_page = request.getParameter("page");

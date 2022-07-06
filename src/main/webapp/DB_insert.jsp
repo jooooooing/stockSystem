@@ -22,14 +22,14 @@
 	PreparedStatement pstmt = conn.prepareStatement(sql);
 
 	try {
-		for (int i = 61; i < 120; i++) {
+		for (int i = 400; i < 500; i++) {
 			pstmt.setInt(1, i);
 			pstmt.setString(2, "품명" + i);
 			pstmt.setInt(3, 1);
 			pstmt.setString(4, sdf.format(nowDate));
 			pstmt.setString(5, sdf.format(nowDate));
 			pstmt.setString(6, "설명" + i);
-			pstmt.setString(7, "사진" + i);
+			pstmt.setString(7, "사진텍스트" + i);
 
 			pstmt.executeUpdate();
 		}
