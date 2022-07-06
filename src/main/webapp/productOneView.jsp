@@ -37,37 +37,37 @@ String p_image = rset.getString(7); // 사진
 </head>
 
 <body>
-	<jsp:include page="menu.jsp" />
+	<jsp:include page="menu.jsp"></jsp:include>
 	<div class="container">
 		<h3>재고현황-상품 상세</h3>
 		<table
 			class="table table-bordered table-striped table-sm thead-dark table-hover">
 			<tr>
-				<td>상품번호</td>
+				<td align = 'center'>상품번호</td>
 				<td><%=p_id%></td>
 			</tr>
 			<tr>
-				<td>상품명</td>
+				<td align = 'center'>상품명</td>
 				<td><%=p_name%></td>
 			</tr>
 			<tr>
-				<td>재고 현황</td>
+				<td align = 'center'>재고 현황</td>
 				<td><%=p_stock%></td>
 			</tr>
 			<tr>
-				<td>상품등록일</td>
+				<td align = 'center'>상품등록일</td>
 				<td><%=p_date%></td>
 			</tr>
 			<tr>
-				<td>재고등록일</td>
+				<td align = 'center'>재고등록일</td>
 				<td><%=s_date%></td>
 			</tr>
 			<tr>
-				<td>상품설명</td>
+				<td align = 'center'>상품설명</td>
 				<td><%=p_info%></td>
 			</tr>
 			<tr>
-				<td>상품사진</td>
+				<td align = 'center'>상품사진</td>
 				<td><img src="<%=p_image%>"></td>
 			</tr>
 		</table>

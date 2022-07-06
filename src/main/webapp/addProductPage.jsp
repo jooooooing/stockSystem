@@ -29,45 +29,45 @@
 String today = new java.text.SimpleDateFormat("yyyy-MM-dd").format(new java.util.Date());
 %>
 <body>
-	<jsp:include page="menu.jsp" />
+	<jsp:include page="menu.jsp"></jsp:include>
 	<form action="DB_write.jsp" method="post" enctype="multipart/form-data">
 		<div class="container">
 			<h3>재고현황-상품 상세</h3>
 			<table class="table table-bordered table-striped table-sm thead-dark table-hover">
 				<tr>
-					<td>상품번호</td>
+					<td align = 'center'>상품번호</td>
 					<td>
 						<input type=number min="1" name='p_id' placeholder="숫자만 입력해주셔요" onkeyup="characterCheck(this)" onkeydown="characterCheck(this)" required>
 					</td>
 				</tr>
 				<tr>
-					<td>상품명</td>
+					<td align = 'center'>상품명</td>
 					<td>
 						<input type=text name='p_name' onkeyup="characterCheck(this)" onkeydown="characterCheck(this)" required>
 					</td>
 				</tr>
 				<tr>
-					<td>재고 현황</td>
+					<td align = 'center'>재고 현황</td>
 					<td>
 						<input type=number min="0" name='p_stock' placeholder="숫자만 입력해주셔요" required>
 					</td>
 				</tr>
 				<tr>
-					<td>상품등록일</td>
+					<td align = 'center'>상품등록일</td>
 					<td><%=today%></td>
 				</tr>
 				<tr>
-					<td>재고파악일</td>
+					<td align = 'center'>재고파악일</td>
 					<td><%=today%></td>
 				</tr>
 				<tr>
-					<td>상품설명</td>
+					<td align = 'center'>상품설명</td>
 					<td>
 						<input type=text name='p_info' onkeyup="characterCheck(this)" onkeydown="characterCheck(this)" required>
 					</td>
 				</tr>
 				<tr>
-					<td>상품사진</td>
+					<td align = 'center'>상품사진</td>
 					<td>
 						<input type="file" name="file">
 				</tr>

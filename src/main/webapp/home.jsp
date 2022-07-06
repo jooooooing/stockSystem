@@ -20,7 +20,6 @@
 <body>
 	<jsp:include page="menu.jsp"></jsp:include>
 
-	<div class="container">
 		<div class="text-center">
 			<h3>Welcome to Stock Management System!</h3>
 
@@ -30,11 +29,8 @@
 			%>
 			현재 접속 시각 :
 			<%=format.format(now)%>
-
 		</div>
-	</div>
 
-	<jsp:include page="footer.jsp"></jsp:include>
 
 </body>
 </html>

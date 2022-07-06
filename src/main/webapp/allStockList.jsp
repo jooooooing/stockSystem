@@ -24,11 +24,19 @@
 	marging-left: auto;
 }
 
+    a {
+      color: black;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
 </style>
 
 <%
 String no_page = "1";
-int size_page = 20;
+int size_page = 10;
 int count_total = 0;
 int size_group_page = 10;
 
@@ -51,27 +59,27 @@ ResultSet rset2 = stmt.executeQuery(sql2);
 </head>
 
 <body>
-	<jsp:include page="menu.jsp" />
+	<jsp:include page="menu.jsp"></jsp:include>
 
 	<div class="container">
 		<h3>재고현황-전체현황</h3>
 		<table class="table table-bordered table-striped table-sm thead-dark table-hover">
 			<tr>
-				<td>상품번호</td>
-				<td>상품명</td>
-				<td>현재 재고수</td>
-				<td>상품등록일</td>
-				<td>재고파악일</td>
+				<td align="center">상품번호</td>
+				<td align="center">상품명</td>
+				<td align="center">현재 재고수</td>
+				<td align="center">상품등록일</td>
+				<td align="center">재고파악일</td>
 			</tr>
 			<%
 			while (rset2.next()) {
 				out.println("<tr>");
-				out.println("<td>" + rset2.getInt("p_id") + "</td>");
-				out.println("<td><a href='productOneView.jsp?p_id=" + rset2.getString("p_id") + "'>" + rset2.getString("p_name")
+				out.println("<td align='center'>" + rset2.getInt("p_id") + "</td>");
+				out.println("<td align='center'><a href='productOneView.jsp?p_id=" + rset2.getString("p_id") + "'>" + rset2.getString("p_name")
 				+ "</a></td>");
-				out.println("<td>" + rset2.getInt("p_stock") + "</td>");
-				out.println("<td>" + rset2.getDate("p_date") + "</td>");
-				out.println("<td>" + rset2.getDate("s_date") + "</td>");
+				out.println("<td align='center'>" + rset2.getInt("p_stock") + "</td>");
+				out.println("<td align='center'>" + rset2.getDate("p_date") + "</td>");
+				out.println("<td align='center'>" + rset2.getDate("s_date") + "</td>");
 				out.println("</tr>");
 			}
 			%>
@@ -132,7 +140,6 @@ ResultSet rset2 = stmt.executeQuery(sql2);
 	stmt.close();
 	conn.close();
 	%>
-	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
 </head>
